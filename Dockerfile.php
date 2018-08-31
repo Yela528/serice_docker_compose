@@ -24,7 +24,13 @@ RUN set -xe \
     " \
     && echo "安装 php 以及编译构建组件所需包" \
     && DEBIAN_FRONTEND=noninteractive \
+    && apt-get install -y language-pack-en-base \
+    && LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php \
+    && add-apt-repository ppa:ondrej/php \
     && apt-get update \
+    && apt-cache search php5 \
+    && apt-get install php5.5-common \
+    && apt-get install libapache2-mod-php5.5 \
     && apt-get install -y ${runtimeDeps} ${buildDeps} --no-install-recommends \
     && echo "编译安装 php 组件" \
     && docker-php-ext-install iconv mcrypt mysqli pdo pdo_mysql zip bcmath soap \
