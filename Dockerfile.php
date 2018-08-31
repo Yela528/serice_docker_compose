@@ -24,6 +24,7 @@ RUN set -xe \
     " \
     && echo "安装 php 以及编译构建组件所需包" \
     && DEBIAN_FRONTEND=noninteractive \
+    && apt-get update \
     && apt-get install -y language-pack-en-base \
     && LC_ALL=en_US.UTF-8 add-apt-repository ppa:ondrej/php \
     && add-apt-repository ppa:ondrej/php \
