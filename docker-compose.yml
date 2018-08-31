@@ -1,7 +1,7 @@
 version: '2'
 services:
     nginx:
-        image: "${DOCKER_USER}/lnmp-nginx:v1.2"
+        image: "ylsc/lnmp-nginx"
         build:
             context: .
             dockerfile: Dockerfile.nginx
@@ -15,7 +15,7 @@ services:
         depends_on:
             - php
     php:
-        image: "${DOCKER_USER}/lnmp-php:v1.2"
+        image: "ylsc/lnmp-php"
         build:
             context: .
             dockerfile: Dockerfile.php
